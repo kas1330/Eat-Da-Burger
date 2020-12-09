@@ -15,6 +15,8 @@ router.get("/", function(req, res) {
   });
 
   router.post("/api/burgers", function(req, res) {
+    console.log('inside route.post in burger_controller');
+    
     burger.create([
       //names of db comulns
       "burger_name", "devoured"
