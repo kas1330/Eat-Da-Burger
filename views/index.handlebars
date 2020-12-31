@@ -1,54 +1,76 @@
 {{!-- Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
- {{!-- * Create a button in `index.handlebars` that will submit the user input into the database. --}}
-<div class= 'container'>
-    <div class= 'row'>
-        <h1  style= 'text-align:center'>Eat the Burger!</h1>
+{{!-- * Create a button in `index.handlebars` that will submit the user input into the database. --}}
+<div class='container'>
+    <div class='row'>
+        <h1 style='text-align:center'>Eat the Burger!</h1>
     </div>
-    <div class= 'row'>
+    <div class='row'>
         <img class="center" src="/assets/burger.jpg" alt="Burger clipart">
     </div>
-    <div class= 'row'>
-        <div class= 'col-lg-8 col-md-6'>
+    <div class='row'>
+        <div class='col-lg-8 col-md-6'>
             <h2>Add a burger</h2>
             <form class="create-form">
 
-            <div class="form-group">
-                <label for="bu">Burger Name:</label>
-                <input type="text" id="burg" name="name">
-            </div>
+                <div class="form-group">
+                    <label for="bu">Burger Name:</label>
+                    <input type="text" id="burg" name="name">
+                </div>
 
-            {{!-- <div class="form-group">
-                <label for="sleepy">Sleepy?</label><br>
-                <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-                <input type="radio" name="sleepy" value="0"> Awake
-            </div> --}}
+                {{!-- <div class="form-group">
+                    <label for="sleepy">Sleepy?</label><br>
+                    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+                    <input type="radio" name="sleepy" value="0"> Awake
+                </div> --}}
 
-            <button type="submit" class= 'btn btn-secondary add-burger'>Add Burger</button>
+                <button type="submit" class='btn btn-secondary add-burger'>Add Burger</button>
             </form>
 
         </div>
-        <div class= 'col-lg-4 col-md-6'>
-            <h2>Burgers to be devoured</h2>
+        <div class='col-lg-4 col-md-6'>
+            <h2>Devoured Burgers</h2>
             {{!-- put code here to get the non devoured burgers from the db --}}
+            {{!-- <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <form>
+                    <div class="input-group">
+                        <li class="form-control">
+                            {{id}}.
+                            {{burger_name}}
+                        </li>
+                        <span class="input-group-btn">
+                            <button class="devour btn btn-secondary" data-id="{{id}}">Devour it!</button>
+                        </span>
+                    </div>
+                </form>
+                {{/unless}}
+                {{/each}}
+            </ul> --}}
+
+
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-lg-8 col-md-6'>
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
                 <form>
-                <div class="input-group">
-                    <li class="form-control">
-                    {{id}}.
-                    {{burger_name}}
-                    </li>
-                    <span class="input-group-btn">
-                    <button class="devour btn btn-secondary" data-id="{{id}}">Devour it!</button>
-                    </span>
-                </div>
+                    <div class="input-group">
+                        <li class="form-control">
+                            {{id}}.
+                            {{burger_name}}
+                        </li>
+                        <span class="input-group-btn">
+                            <button class="devour btn btn-secondary" data-id="{{id}}">Devour it!</button>
+                        </span>
+                    </div>
                 </form>
                 {{/unless}}
                 {{/each}}
             </ul>
-
-
         </div>
     </div>
 </div>
