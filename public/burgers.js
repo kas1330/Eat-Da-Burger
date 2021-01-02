@@ -22,10 +22,11 @@ $(function(){
     $('.devour').on('click', function(event) {
         event.preventDefault();
 
+        const id = $(this).data("id");
         let devoured = 1;
         console.log('devour button clicked.');
-        
-        $.ajax("/api/devour", {
+
+        $.ajax(`/api/devour/ ${id}`, {
             type: 'PUT',
             data: devoured
         }).then(

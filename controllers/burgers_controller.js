@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
       //names of db comulns
       "burger_name", "devoured"
     ], [
-      //user input
+      //user input, have to use the same value after body that you used on the other page. (burger_name)
       req.body.burger_name, 0
     ], function(result) {
       // Send back the ID of the new cat that was created and inserted in to the db
@@ -29,10 +29,10 @@ router.get("/", function(req, res) {
     });
   });
 
-  router.post("/api/devour", function(req, res){
+  router.post("/api/devour/:id", function(req, res){
     console.log('inside api/devour in burger controller');
 
-    
+
   });
 
 module.exports = router;
