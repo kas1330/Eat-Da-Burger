@@ -1,12 +1,11 @@
 $(function(){
-    $('.add-burger').on('submit', function(event) {
-        console.log('submit button clicked, inside burger.js');
-       
+    $('.add-burger').on('click', function(event) {
         event.preventDefault();
 
+        console.log('add burger button clicked');
         let newBurger = {
-            burger_name: $('#bu').val().trim()
-            //maybe need devoured?
+            burger_name: $('#burg').val().trim()
+
         };
 
         $.ajax("/api/burgers", {
@@ -20,5 +19,22 @@ $(function(){
         ); 
     });
 
+    $('.devour').on('click', function(event) {
+        event.preventDefault();
+
+        let devoured = 1;
+        console.log('devour button clicked.');
+        
+        $.ajax("/api/devour", {
+            type: 'PUT',
+            data: devoured
+        }).then(
+            function(){
+                console.log('burger was devoured');
+                location.reload();
+            }
+        )
+
+    })
 //more code will go here
 });

@@ -44,7 +44,12 @@ var orm = {
     
           cb(result);
         });
+      },
+
+      update: function(){
+        
       }
+      
 }
 
 

@@ -15,18 +15,24 @@ router.get("/", function(req, res) {
   });
 
   router.post("/api/burgers", function(req, res) {
-    console.log('inside route.post in burger_controller');
+    console.log('inside api/burgers in burger_controller');
     
     burger.create([
       //names of db comulns
       "burger_name", "devoured"
     ], [
       //user input
-      req.body.name, 0
+      req.body.burger_name, 0
     ], function(result) {
       // Send back the ID of the new cat that was created and inserted in to the db
       res.json({ id: result.insertId });
     });
+  });
+
+  router.post("/api/devour", function(req, res){
+    console.log('inside api/devour in burger controller');
+
+    
   });
 
 module.exports = router;

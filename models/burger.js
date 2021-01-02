@@ -15,7 +15,10 @@ var burger = {
     orm.create("burgers", cols, vals, function(res) {
       cb(res);
     });
-  }
+  },
+   update:  function(cols, vals, cb) {
+     orm.update()
+   }
     
 }
 module.exports= burger;
