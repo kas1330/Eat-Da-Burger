@@ -16,8 +16,10 @@ var burger = {
       cb(res);
     });
   },
-   update:  function(cols, vals, cb) {
-     orm.update()
+   update:  function(cols, whereCondition, cb) {
+     orm.update("burgers_db", "devoured", whereCondition, function(res){
+       cb(res);
+     })
    }
     
 }

@@ -26,7 +26,7 @@ var orm = {
     },
 
     create: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
     
         queryString += " (";
         queryString += cols.toString();
@@ -46,8 +46,15 @@ var orm = {
         });
       },
 
-      update: function(){
-        
+      update: function(table, cols, whereCondition, cb){
+        const queryString = `UPDATE ${table} SET ${cols} = true WHERE ${whereCondition}`;
+        connection.query(queryString, whereCondition, function(err, result){
+          if(err){
+            throw err;
+          }
+
+          cb(result);
+        });
       }
       
 }
