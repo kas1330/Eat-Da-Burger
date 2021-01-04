@@ -21,16 +21,26 @@ router.get("/", function(req, res) {
       //names of db comulns
       "burger_name", "devoured"
     ], [
-      //user input, have to use the same value after body that you used on the other page. (burger_name)
+      //user input, have to use the same value after body that you used on the other page. (burger_name, burgers.js)
       req.body.burger_name, 0
     ], function(result) {
-      // Send back the ID of the new cat that was created and inserted in to the db
+      // Send back the ID of the new burger that was created and inserted in to the db
       res.json({ id: result.insertId });
     });
   });
 
-  router.post("/api/devour/:id", function(req, res){
+  router.put("/api/devour/:id", function(req, res){
     console.log('inside api/devour in burger controller');
+
+    const whereCondition = `id = ${req.params.id}`;
+    burger.update([
+      devoured = req.body.devoured,
+    ],[
+      whereCondition
+    ], function(result){
+      res.json({id: result.insertId});
+    }
+    )
 
 
   });

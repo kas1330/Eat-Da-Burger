@@ -37,5 +37,4 @@ $(function(){
         )
 
     })
-//more code will go here
 });
